@@ -1,0 +1,88 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+ul {
+  margin: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+.name {
+  max-width: 150px;
+  @media only screen and (max-width: 768px) {
+    max-width: 100%;
+  }
+}
+header {
+  text-align: center;
+  background-color: #1f2136;
+  color: #fff;
+  padding: 16px;
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+.profile-picture {
+  text-align: center;
+}
+.profile-picture img {
+  max-width: 150px;
+  border-radius: 50%;
+  display: block;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.content {
+  flex: 1; /* เพิ่ม Flex ให้ข้อมูลเต็มพื้นที่ */
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+}
+h1 {
+  margin: 0;
+}
+h3 {
+  color: #1f2136;
+}
+p {
+  margin: 0;
+}
+.section {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+ul {
+  list-style: disc;
+  /* margin-left: 16px; */
+}
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}

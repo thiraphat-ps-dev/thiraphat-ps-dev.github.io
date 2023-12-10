@@ -1,158 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Front-end Developer Resume</title>
-    <style>
-      h1,
-      h2,
-      h3,
-      h4,
-      h5 {
-        margin: 0;
-      }
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-      }
-      .container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-      }
-      header {
-        text-align: center;
-        background-color: #007bff;
-        color: #fff;
-        padding: 20px;
-        border-radius: 5px 0 0 5px;
-      }
-      .profile-picture {
-        text-align: center;
-      }
-      .profile-picture img {
-        max-width: 150px;
-        border-radius: 50%;
-        margin: 10px auto;
-        display: block;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-      .content {
-        flex: 1; /* เพิ่ม Flex ให้ข้อมูลเต็มพื้นที่ */
-        gap: 20px;
-      }
-      h1 {
-        margin: 0;
-      }
-      h3 {
-        color: #007bff;
-      }
-      p {
-        margin: 0;
-      }
-      .section {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-      ul {
-        list-style: disc;
-        margin-left: 20px;
-      }
-      a {
-        color: #007bff;
-        text-decoration: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1>THIRAPHAT<br />PHUTSON</h1>
-        <h4>Front-end Developer</h4>
-        <div class="profile-picture">
-          <img src="profile-picture.jpg" alt="Profile Picture" />
-        </div>
-      </header>
-      <div class="content">
-        <section class="section">
-          <h3>Personal Information</h3>
-          <p>Address: 119 หมู่ 2 ต.คลองขนาก อ.วิเศษชัยชาญ จ.อ่างทอง</p>
-          <p>Email: thiraphat.ps.dev@gmail.com</p>
-          <p>Phone: 081-553-7648</p>
-          <p>
-            LinkedIn:
-            <a href="https://www.linkedin.com/in/thiraphat-phutson/"
-              >thiraphat-phutson</a
-            >
-          </p>
-          <p>
-            GitHub:
-            <a href="https://github.com/thiraphat-ps-dev">thiraphat-ps-dev</a>
-          </p>
-        </section>
-        <section class="section">
-          <h3>Work Experience</h3>
-          <h4>Senior Web Application Developer - King Power (2023-Present)</h4>
-          <p>
-            Projects: Details about the projects you worked on and your
-            responsibilities.
-          </p>
-          <h4>Front-end Developer - King Power Click Co., Ltd. (2020-2023)</h4>
-          <p>
-            Projects: Details about the projects you worked on and your
-            responsibilities.
-          </p>
-          <h4>Junior Software Engineer - Intelligent Bytes (2019-2020)</h4>
-          <p>
-            Projects: Details about the projects you worked on and your
-            responsibilities.
-          </p>
-        </section>
-        <section class="section">
-          <h3>Education</h3>
-          <h4>
-            Bachelor's Degree in Information Technology - Rajamangala University Of Technology Suvarnabhumi Huntra (2017-2019)
-          </h4>
-        </section>
-        <section class="section">
-          <h3>Skills and Expertise</h3>
-          <ul>
-            <li>HTML/CSS</li>
-            <li>JavaScript</li>
-            <li>React</li>
-            <li>Responsive Web Design</li>
-            <li>Version Control (Git)</li>
-          </ul>
-        </section>
-        <section class="section">
-          <h3>Completed Projects</h3>
-          <ul>
-            <li>Project 1: Details about the project you completed</li>
-            <li>Project 2: Details about the project you completed</li>
-          </ul>
-        </section>
-        <section class="section">
-          <h3>Hobbies</h3>
-          <p>Online book reading system</p>
-          <p>Writing articles related to Front-end Development</p>
-        </section>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Front-end Developer Resume</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h2 class="name">THIRAPHAT PHUTSON</h2>
+      <h4>Front-end Developer</h4>
+      <div class="profile-picture">
+        <img src="profile-picture.jpg" alt="Profile Picture">
       </div>
+    </header>
+    <div class="content">
+      <section class="section">
+        <h3>Personal Information</h3>
+        <ul>
+          <li>Address: 119 หมู่ 2 ต.คลองขนาก อ.วิเศษชัยชาญ จ.อ่างทอง</li>
+          <li>Email: thiraphat.ps.dev@gmail.com</li>
+          <li>Phone: 081-553-7648</li>
+          <li>LinkedIn: <a target="_blank" href="https://www.linkedin.com/in/thiraphat-phutson/">thiraphat-phutson</a></li>
+          <li>GitHub: <a target="_blank" href="https://github.com/thiraphat-ps-dev">thiraphat-ps-dev</a></li>
+        </ul>
+      </section>
+      <section class="section">
+        <h3>Work Experience</h3>
+        <ul>
+          <li>
+            <h4>Senior Web Application Developer - King Power (2023-Present)</h4>
+            <p>Projects: Details about the projects you worked on and your responsibilities.</p>
+          </li>
+          <li>
+            <h4>Front-end Developer - King Power Click Co., Ltd. (2020-2023)</h4>
+            <p>Projects: Details about the projects you worked on and your responsibilities.</p>
+          </li>
+          <li>
+            <h4>Junior Software Engineer - Intelligent Bytes (2019-2020)</h4>
+            <p>Projects: Details about the projects you worked on and your responsibilities.</p>
+          </li>
+        </ul>
+      </section>
+      <section class="section">
+        <h3>Education</h3>
+        <ul>
+          <li>Bachelor's Degree in Information Technology - Rajamangala University Of Technology Suvarnabhumi Huntra (2017-2019)</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h3>Skills and Expertise</h3>
+        <ul>
+          <li>HTML/CSS</li>
+          <li>JavaScript</li>
+          <li>React</li>
+          <li>Responsive Web Design</li>
+          <li>Version Control (Git)</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h3>Completed Projects</h3>
+        <ul>
+          <li>Project 1: Details about the project you completed</li>
+          <li>Project 2: Details about the project you completed</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h3>Hobbies</h3>
+        <ul>
+          <li>Online book reading system</li>
+          <li>Writing articles related to Front-end Development</li>
+        </ul>
+      </section>
     </div>
-  </body>
+  </div>
+</body>
 </html>
