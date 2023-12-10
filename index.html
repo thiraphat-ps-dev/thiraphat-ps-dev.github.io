@@ -1,115 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Front-end Developer Resume</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-        }
-        header {
-            text-align: center;
-            background-color: #007bff;
-            color: #fff;
-            padding: 20px;
-            border-radius: 5px 5px 0 0;
-        }
-        .profile-picture {
-            text-align: center;
-        }
-        .profile-picture img {
-            max-width: 150px;
-            border-radius: 50%;
-            margin: 10px auto;
-            display: block;
-        }
-        h1 {
-            margin: 0;
-        }
-        h2 {
-            color: #007bff;
-        }
-        p {
-            margin: 0;
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-        ul {
-            list-style: disc;
-            margin-left: 20px;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+      }
+      header {
+        text-align: center;
+        background-color: #007bff;
+        color: #fff;
+        padding: 20px;
+        border-radius: 5px 0 0 5px;
+      }
+      .profile-picture {
+        text-align: center;
+      }
+      .profile-picture img {
+        max-width: 150px;
+        border-radius: 50%;
+        margin: 10px auto;
+        display: block;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .content {
+        flex: 1; /* เพิ่ม Flex ให้ข้อมูลเต็มพื้นที่ */
+      }
+      h1 {
+        margin: 0;
+      }
+      h2 {
+        color: #007bff;
+      }
+      p {
+        margin: 0;
+      }
+      .section {
+        margin-bottom: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 5px;
+      }
+      ul {
+        list-style: disc;
+        margin-left: 20px;
+      }
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <h1>ชื่อ-นามสกุล</h1>
-            <p>Front-end Developer</p>
-        </header>
+      <header>
+        <h1>ชื่อ-นามสกุล</h1>
+        <p>Front-end Developer</p>
         <div class="profile-picture">
-            <img src="profile-picture.jpg" alt="รูปภาพโปรไฟล์">
+          <img src="profile-picture.jpg" alt="รูปภาพโปรไฟล์" />
         </div>
+      </header>
+      <div class="content">
         <section class="section">
-            <h2>ข้อมูลส่วนตัว</h2>
-            <p>ที่อยู่: ที่อยู่ของคุณ</p>
-            <p>อีเมล: example@example.com</p>
-            <p>โทรศัพท์: 080-123-4567</p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile">LinkedIn Profile</a></p>
-            <p>GitHub: <a href="https://github.com/yourusername">GitHub Profile</a></p>
+          <h2>ข้อมูลส่วนตัว</h2>
+          <p>ที่อยู่: ที่อยู่ของคุณ</p>
+          <p>อีเมล: example@example.com</p>
+          <p>โทรศัพท์: 080-123-4567</p>
+          <p>
+            LinkedIn:
+            <a href="https://www.linkedin.com/in/yourprofile"
+              >LinkedIn Profile</a
+            >
+          </p>
+          <p>
+            GitHub: <a href="https://github.com/yourusername">GitHub Profile</a>
+          </p>
         </section>
         <section class="section">
-            <h2>ประสบการณ์ทำงาน</h2>
-            <h3>Front-end Developer - บริษัท ABC (2020-ปัจจุบัน)</h3>
-            <p>โปรเจกต์: รายละเอียดเกี่ยวกับโปรเจกต์ที่คุณทำงาน และท่าที่คุณทำหน้าที่</p>
-            <h3>Web Developer - บริษัท XYZ (2018-2020)</h3>
-            <p>โปรเจกต์: รายละเอียดเกี่ยวกับโปรเจกต์ที่คุณทำงาน และท่าที่คุณทำหน้าที่</p>
+          <h2>ประสบการณ์ทำงาน</h2>
+          <h3>Front-end Developer - บริษัท ABC (2020-ปัจจุบัน)</h3>
+          <p>
+            โปรเจกต์: รายละเอียดเกี่ยวกับโปรเจกต์ที่คุณทำงาน
+            และท่าที่คุณทำหน้าที่
+          </p>
+          <h3>Web Developer - บริษัท XYZ (2018-2020)</h3>
+          <p>
+            โปรเจกต์: รายละเอียดเกี่ยวกับโปรเจกต์ที่คุณทำงาน
+            และท่าที่คุณทำหน้าที่
+          </p>
         </section>
         <section class="section">
-            <h2>การศึกษา</h2>
-            <h3>ปริญญาตรี วิทยาการคอมพิวเตอร์ - มหาวิทยาลัย ABC (2014-2018)</h3>
+          <h2>การศึกษา</h2>
+          <h3>ปริญญาตรี วิทยาการคอมพิวเตอร์ - มหาวิทยาลัย ABC (2014-2018)</h3>
         </section>
         <section class="section">
-            <h2>ทักษะและความเชี่ยวชาญ</h2>
-            <ul>
-                <li>HTML/CSS</li>
-                <li>JavaScript</li>
-                <li>React</li>
-                <li>Responsive Web Design</li>
-                <li>Version Control (Git)</li>
-            </ul>
+          <h2>ทักษะและความเชี่ยวชาญ</h2>
+          <ul>
+            <li>HTML/CSS</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>Responsive Web Design</li>
+            <li>Version Control (Git)</li>
+          </ul>
         </section>
         <section class="section">
-            <h2>โครงการที่เสร็จสิ้น</h2>
-            <ul>
-                <li>โครงการ 1: รายละเอียดเกี่ยวกับโครงการที่คุณเสร็จสิ้น</li>
-                <li>โครงการ 2: รายละเอียดเกี่ยวกับโครงการที่คุณเสร็จสิ้น</li>
-            </ul>
+          <h2>โครงการที่เสร็จสิ้น</h2>
+          <ul>
+            <li>โครงการ 1: รายละเอียดเกี่ยวกับโครงการที่คุณเสร็จสิ้น</li>
+            <li>โครงการ 2: รายละเอียดเกี่ยวกับโครงการที่คุณเสร็จสิ้น</li>
+          </ul>
         </section>
         <section class="section">
-            <h2>งานอดิเรก</h2>
-            <p>ระบบการอ่านหนังสือออนไลน์</p>
-            <p>การเขียนบทความเกี่ยวกับ Front-end Development</p>
+          <h2>งานอดิเรก</h2>
+          <p>ระบบการอ่านหนังสือออนไลน์</p>
+          <p>การเขียนบทความเกี่ยวกับ Front-end Development</p>
         </section>
+      </div>
     </div>
-</body>
+  </body>
 </html>
