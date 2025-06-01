@@ -256,6 +256,13 @@ body::before {
   font-size: 1.1rem;
   margin-bottom: 4px;
 }
+.work-position {
+  font-weight: 500;
+  color: var(--accent);
+  font-size: 1rem;
+  margin-bottom: 8px;
+  font-style: italic;
+}
 .work-years, .edu-years {
   font-size: 0.9rem;
   font-weight: 500;
