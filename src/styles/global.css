@@ -1156,3 +1156,126 @@ a {
     transparent 70%
   );
 }
+
+/* =========================================================
+   Experience timeline
+   ========================================================= */
+.exp {
+  padding-block: clamp(96px, 14vh, 160px);
+}
+.exp-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: start;
+}
+.exp-head {
+  position: sticky;
+  top: 120px;
+  display: grid;
+  gap: 16px;
+}
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 56px;
+  margin: 0;
+  padding: 0 0 0 32px;
+  list-style: none;
+}
+/* Track + progress line */
+.timeline::before,
+.timeline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--thira-border);
+}
+.timeline::after {
+  background: linear-gradient(
+    var(--thira-accent),
+    oklch(from var(--thira-accent) l c calc(h + 80))
+  );
+  transform-origin: top;
+}
+.job {
+  position: relative;
+  display: grid;
+  gap: 8px;
+}
+.job::before {
+  content: "";
+  position: absolute;
+  left: -38px;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--thira-bg);
+  border: 2px solid var(--thira-accent);
+}
+.when {
+  font:
+    600 0.9rem/1 ui-monospace,
+    "Cascadia Code",
+    Consolas,
+    monospace;
+  color: var(--thira-accent);
+}
+.job h3 {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  letter-spacing: -0.03em;
+}
+.org {
+  margin: 0;
+  font-weight: 600;
+  color: var(--thira-text);
+}
+.what {
+  max-width: 52ch;
+  margin: 0;
+  line-height: 1.55;
+  color: var(--thira-text-muted);
+}
+@media (width < 860px) {
+  .exp-inner {
+    grid-template-columns: 1fr;
+  }
+  .exp-head {
+    position: static;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .timeline {
+      view-timeline: --timeline block;
+    }
+    .timeline::after {
+      animation: draw-line linear both;
+      animation-timeline: --timeline;
+      animation-range: entry 40% exit 60%;
+    }
+    @keyframes draw-line {
+      from {
+        transform: scaleY(0);
+      }
+    }
+    .job {
+      animation: job-in linear both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 80%;
+    }
+    @keyframes job-in {
+      from {
+        opacity: 0;
+        translate: 40px 0;
+      }
+    }
+  }
+}

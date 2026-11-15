@@ -10,6 +10,33 @@ import { getArticles } from '../lib/medium';
 const articles = await getArticles(8);
 const fmt = new Intl.DateTimeFormat('en', { month: 'short', year: 'numeric' });
 
+const experience = [
+  {
+    when: '2023 – Now',
+    role: 'Senior Web Application Developer',
+    org: 'King Power',
+    what: 'Leading frontend for membership and e-commerce platforms: architecture on a shared design system, code reviews and mentoring.',
+  },
+  {
+    when: '2018 – 2021',
+    role: 'Senior Officer, Web Application',
+    org: 'King Power Click',
+    what: 'Built large-scale web applications, introduced TypeScript and led the move from legacy systems to a modern React architecture.',
+  },
+  {
+    when: '2016 – 2018',
+    role: 'Junior Software Engineer',
+    org: 'Intelligent Byte',
+    what: 'Developed high-traffic booking interfaces with React and Redux, with a focus on performance for international markets.',
+  },
+  {
+    when: '2017 – 2019',
+    role: 'B.Sc. Information Technology',
+    org: 'Rajamangala University of Technology Suvarnabhumi',
+    what: 'Faculty of Science and Technology.',
+  },
+];
+
 const statement =
   'Great code isn’t just fast. It’s clear, reusable, and helps the entire team grow.';
 ---
@@ -162,6 +189,29 @@ const statement =
               <div class="plane p3"></div>
             </div>
           </article>
+        </div>
+      </section>
+
+      <section id="experience" class="exp" aria-labelledby="exp-title">
+        <div class="container exp-inner">
+          <div class="exp-head">
+            <p class="eyebrow">Experience</p>
+            <h2 id="exp-title" class="section-title small">Shipping for real users since 2016.</h2>
+          </div>
+          <ol class="timeline">
+            {
+              experience.map((job) => (
+                <li class="job">
+                  <span class="when">{job.when}</span>
+                  <div>
+                    <h3>{job.role}</h3>
+                    <p class="org">{job.org}</p>
+                    <p class="what">{job.what}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ol>
         </div>
       </section>
 

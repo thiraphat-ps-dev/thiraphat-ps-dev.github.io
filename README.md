@@ -1,43 +1,17 @@
-# Astro Starter Kit: Minimal
+# thiraphat-ps-dev.github.io
 
-```sh
-npm create astro@latest -- --template minimal
+Personal site of Thiraphat Phutson, a senior frontend engineer.
+
+- **Astro**: static output, React components rendered at build time (no hydration).
+- **[thira-ui](https://github.com/thiraphat-ps-dev/thira-ui)**: the UI components and design tokens.
+- **CSS scroll-driven animations**: every scroll effect is pure CSS (`animation-timeline`), and respects `prefers-reduced-motion`.
+- **Writing** is pulled from Medium's RSS at build time. CI rebuilds daily.
+
+```bash
+npm install
+npm run dev       # http://localhost:4321
+npm run build     # static site in dist/
+npm run preview   # check the production build. Always verify scroll effects here
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+> CSS minification is disabled in `astro.config.mjs`: Vite's minifier folds `animation-timeline` into the `animation` shorthand, which browsers reject.
