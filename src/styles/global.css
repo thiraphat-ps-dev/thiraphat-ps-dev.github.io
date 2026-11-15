@@ -40,8 +40,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  backdrop-filter: saturate(180%) blur(20px);
-  background: oklch(from var(--thira-bg) l c h / 0.72);
+  backdrop-filter: blur(12px);
+  background: oklch(from var(--thira-bg) l c h / 0.82);
   border-bottom: 1px solid oklch(from var(--thira-border) l c h / 0.6);
 }
 .nav-inner {
@@ -105,7 +105,6 @@ a {
       oklch(from var(--thira-accent) l c calc(h + 70) / 0.18),
       transparent 70%
     );
-  filter: blur(40px);
   pointer-events: none;
 }
 
@@ -320,7 +319,6 @@ a {
 }
 .p2 {
   background: oklch(from var(--thira-surface) l c h / 0.75);
-  backdrop-filter: blur(8px);
   translate: 0 0 60px;
 }
 .p3 {
@@ -351,7 +349,6 @@ a {
       to {
         opacity: 0;
         scale: 0.88;
-        filter: blur(6px);
       }
     }
 
@@ -400,7 +397,6 @@ a {
       from {
         scale: 0.86;
         opacity: 0.3;
-        border-radius: 56px;
       }
     }
   }
@@ -1109,4 +1105,52 @@ a {
       }
     }
   }
+}
+
+/* ---------- Small screens: keep pinned scenes inside one viewport ---------- */
+@media (width < 860px) {
+  .explode-labels {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .lbl {
+    font-size: 0.75rem;
+  }
+  .lbl b {
+    font-size: 0.95rem;
+  }
+  .stack {
+    width: min(300px, 72vw);
+    margin-top: 0;
+  }
+  .spectrum-inner {
+    gap: 20px;
+  }
+  .spectrum .lede {
+    font-size: 1rem;
+  }
+  .spectrum .demo-card {
+    scale: 0.82;
+    transform-origin: top center;
+    margin-bottom: -18%;
+  }
+}
+
+/* ---------- Performance: keep scroll-linked motion on the compositor ---------- */
+.stack,
+.layer,
+.tile,
+.cell,
+.post,
+.hero-inner,
+.o-zoom {
+  will-change: transform, opacity;
+}
+/* Keep the hue animation's style recalcs to the card + copy, not a full-screen paint */
+.spectrum-sticky {
+  contain: layout paint;
+}
+.spectrum-sticky {
+  /* Static colors, so this layer isn't repainted while the hue animates */
+  background: radial-gradient(50% 55% at 72% 50%, oklch(55% 0.12 250 / 0.16), transparent 70%);
 }
