@@ -329,6 +329,51 @@ a {
   translate: 0 0 120px;
 }
 
+/* Thira Sans specimen. The font is served from the thira-sans proof page on the same origin. */
+@font-face {
+  font-family: "Thira Sans";
+  src: url("https://thiraphat-ps-dev.github.io/thira-sans/fonts/ThiraSans-VF.woff2")
+    format("woff2");
+  font-weight: 100 700;
+  font-display: swap;
+}
+.specimen {
+  display: grid;
+  gap: 10px;
+  justify-self: center;
+  width: min(100%, 440px);
+  font-family: "Thira Sans", var(--thira-font);
+  line-height: 1.5;
+}
+.specimen .glyph {
+  display: flex;
+  align-items: baseline;
+  gap: 0.15em;
+  font-size: clamp(7rem, 16vw, 11rem);
+  font-weight: 200;
+  line-height: 1.1;
+  color: var(--thira-accent);
+}
+.specimen .latin {
+  font-size: 0.5em;
+  font-weight: 700;
+  color: var(--thira-text);
+}
+.specimen .line {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  border-top: 1px solid var(--thira-border);
+  padding-top: 8px;
+}
+.specimen .w1 {
+  font-weight: 100;
+}
+.specimen .w4 {
+  font-weight: 400;
+}
+.specimen .w7 {
+  font-weight: 700;
+}
+
 @media (width < 860px) {
   .tile {
     grid-template-columns: 1fr;
