@@ -2,8 +2,8 @@
 
 :root {
   --thira-hue: 250;
-  --thira-font: 'Inter Variable', system-ui, sans-serif;
-  font-feature-settings: 'cv11', 'ss01';
+  --thira-font: "Inter Variable", system-ui, sans-serif;
+  font-feature-settings: "cv11", "ss01";
   --page-max: 1200px;
   --gutter: clamp(16px, 4vw, 48px);
   color-scheme: light dark;
@@ -90,13 +90,21 @@ a {
 
 /* Soft accent glow that follows the theme hue */
 .hero::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: -20% -10% auto;
   height: 90%;
   background:
-    radial-gradient(40% 50% at 30% 40%, oklch(from var(--thira-accent) l c h / 0.22), transparent 70%),
-    radial-gradient(35% 45% at 72% 30%, oklch(from var(--thira-accent) l c calc(h + 70) / 0.18), transparent 70%);
+    radial-gradient(
+      40% 50% at 30% 40%,
+      oklch(from var(--thira-accent) l c h / 0.22),
+      transparent 70%
+    ),
+    radial-gradient(
+      35% 45% at 72% 30%,
+      oklch(from var(--thira-accent) l c calc(h + 70) / 0.18),
+      transparent 70%
+    );
   filter: blur(40px);
   pointer-events: none;
 }
@@ -194,7 +202,11 @@ a {
   padding: clamp(28px, 5vw, 72px);
   border-radius: 32px;
   background:
-    radial-gradient(60% 80% at 100% 0%, oklch(from var(--thira-accent) l c h / 0.25), transparent 70%),
+    radial-gradient(
+      60% 80% at 100% 0%,
+      oklch(from var(--thira-accent) l c h / 0.25),
+      transparent 70%
+    ),
     var(--thira-surface);
   border: 1px solid var(--thira-border);
   overflow: clip;
@@ -235,42 +247,88 @@ a {
   color: var(--thira-text-muted);
 }
 
-/* Abstract "membership card" visual — no real product screenshots */
-.visual {
-  position: relative;
-  aspect-ratio: 1.586;
-  width: min(100%, 420px);
+.tile + .tile {
+  margin-top: 32px;
+}
+.tile code {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.9em;
+  color: var(--thira-text);
+}
+
+/* thira-ui feature */
+.demo-card {
+  width: min(100%, 440px);
   justify-self: center;
-  border-radius: 24px;
-  padding: 28px;
-  color: oklch(98% 0 0);
-  background:
-    radial-gradient(120% 120% at 0% 0%, oklch(from var(--thira-accent) calc(l + 0.08) c calc(h - 20)), transparent 60%),
-    linear-gradient(135deg, oklch(from var(--thira-accent) calc(l - 0.1) c h), oklch(25% 0.05 calc(var(--thira-hue) + 60)));
-  box-shadow:
-    0 40px 80px oklch(0% 0 0 / 0.35),
-    inset 0 1px 0 oklch(100% 0 0 / 0.3);
-  rotate: -6deg;
+  rotate: 2deg;
+  box-shadow: 0 40px 80px oklch(0% 0 0 / 0.35);
+}
+.demo-stack {
+  display: grid;
+  gap: 18px;
+  padding-top: 18px;
+}
+.hue {
+  display: grid;
+  gap: 10px;
+  max-width: 360px;
+  margin-bottom: 28px;
+  font-size: 0.9rem;
+  color: var(--thira-text-muted);
+}
+.hue input {
+  width: 100%;
+  accent-color: var(--thira-accent);
+}
+.links {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.visual .chip {
-  width: 46px;
-  height: 34px;
-  border-radius: 7px;
-  background: linear-gradient(135deg, oklch(88% 0.08 85), oklch(70% 0.1 75));
-}
-.visual .tier {
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  opacity: 0.85;
-}
-.visual .name {
-  font-size: 1.4rem;
+  flex-wrap: wrap;
+  gap: 20px;
   font-weight: 600;
-  letter-spacing: -0.01em;
+}
+.links a {
+  color: var(--thira-accent);
+  text-decoration: none;
+}
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* Abstract layered planes: suggests UI without showing any real product */
+.planes {
+  position: relative;
+  width: min(100%, 420px);
+  aspect-ratio: 1;
+  justify-self: center;
+  transform: perspective(1200px) rotateX(55deg) rotateZ(-35deg);
+  transform-style: preserve-3d;
+}
+.plane {
+  position: absolute;
+  inset: 12%;
+  border-radius: 28px;
+  border: 1px solid oklch(100% 0 0 / 0.18);
+  box-shadow: 0 30px 60px oklch(0% 0 0 / 0.35);
+}
+.p1 {
+  background: linear-gradient(
+    135deg,
+    oklch(from var(--thira-accent) l c h / 0.9),
+    oklch(from var(--thira-accent) calc(l - 0.15) c calc(h + 40) / 0.9)
+  );
+  translate: 0 0 0;
+}
+.p2 {
+  background: oklch(from var(--thira-surface) l c h / 0.75);
+  backdrop-filter: blur(8px);
+  translate: 0 0 60px;
+}
+.p3 {
+  inset: 26%;
+  background: oklch(
+    from var(--thira-accent) calc(l + 0.15) c calc(h + 70) / 0.55
+  );
+  translate: 0 0 120px;
 }
 
 @media (width < 860px) {
@@ -310,6 +368,28 @@ a {
       }
     }
 
+    /* Planes spread apart as the tile scrolls through */
+    .p2 {
+      animation: lift-2 linear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 60%;
+    }
+    .p3 {
+      animation: lift-3 linear both;
+      animation-timeline: view();
+      animation-range: entry 20% cover 60%;
+    }
+    @keyframes lift-2 {
+      from {
+        translate: 0 0 0;
+      }
+    }
+    @keyframes lift-3 {
+      from {
+        translate: 0 0 0;
+      }
+    }
+
     /* Work tile grows into place */
     .tile {
       animation: tile-in linear both;
@@ -321,22 +401,6 @@ a {
         scale: 0.86;
         opacity: 0.3;
         border-radius: 56px;
-      }
-    }
-
-    .visual {
-      animation: card-float linear both;
-      animation-timeline: view();
-      animation-range: cover 0% cover 100%;
-    }
-    @keyframes card-float {
-      from {
-        translate: 0 60px;
-        rotate: -14deg;
-      }
-      to {
-        translate: 0 -40px;
-        rotate: 2deg;
       }
     }
   }
@@ -360,4 +424,349 @@ a {
       translate: 0 24px;
     }
   }
+}
+
+/* =========================================================
+   Signature scenes
+   ========================================================= */
+
+@property --thira-hue {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 250;
+}
+@property --hue-int {
+  syntax: "<integer>";
+  inherits: true;
+  initial-value: 250;
+}
+
+.section-title {
+  margin: 0;
+  font-size: clamp(2.6rem, 7vw, 6rem);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+.section-title .grad {
+  color: oklch(from var(--thira-accent) calc(l + 0.14) c h);
+}
+
+/* ---------- Scene 1: exploded layers ---------- */
+.explode-sticky {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 8px;
+  padding-block: 40px;
+}
+.explode-copy {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: grid;
+  gap: 16px;
+}
+.explode-stage {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 300px);
+  align-items: center;
+  gap: 24px;
+  width: min(100% - 2 * var(--gutter), var(--page-max));
+  margin-inline: auto;
+  perspective: 1800px;
+}
+
+.stack {
+  position: relative;
+  justify-self: center;
+  width: min(380px, 80vw);
+  aspect-ratio: 380 / 420;
+  transform-style: preserve-3d;
+  margin-top: 8vh;
+  transform: rotateX(58deg) rotateZ(-38deg) scale(0.82);
+}
+.layer {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  border-radius: 24px;
+  transform-style: preserve-3d;
+}
+.layer-tokens {
+  background: var(--thira-surface);
+  border: 1px solid var(--thira-border);
+  box-shadow: 0 40px 80px oklch(0% 0 0 / 0.4);
+  translate: 0 0 0;
+}
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  height: 100%;
+}
+.swatch {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 6px;
+}
+.swatch span {
+  border-radius: 14px;
+  border: 1px solid oklch(from var(--thira-text) l c h / 0.12);
+}
+.swatch code {
+  font:
+    500 11px/1 ui-monospace,
+    "Cascadia Code",
+    Consolas,
+    monospace;
+  color: var(--thira-text-muted);
+}
+
+.layer-primitives {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  border: 1.5px dashed oklch(from var(--thira-accent) l c h / 0.7);
+  background: oklch(from var(--thira-accent) l c h / 0.06);
+  translate: 0 0 120px;
+}
+.wire {
+  border: 1.5px dashed oklch(from var(--thira-accent) l c h / 0.7);
+  border-radius: 10px;
+}
+.wire-title {
+  width: 55%;
+  height: 22px;
+}
+.wire-field {
+  height: 64px;
+}
+.wire-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.wire-row.end {
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+.wire-toggle {
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+}
+.wire-line {
+  flex: 1;
+  height: 14px;
+}
+.wire-btn {
+  width: 84px;
+  height: 36px;
+}
+.wire-btn.solid {
+  background: oklch(from var(--thira-accent) l c h / 0.2);
+}
+
+.layer-components {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  background: var(--thira-surface);
+  border: 1px solid var(--thira-border-strong);
+  box-shadow: 0 50px 100px oklch(0% 0 0 / 0.45);
+  translate: 0 0 240px;
+}
+.layer-heading {
+  margin: 0;
+  font-weight: 650;
+  font-size: 1.1rem;
+}
+.layer-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.explode-labels {
+  display: grid;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.lbl {
+  color: var(--thira-text-muted);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+.lbl b {
+  display: block;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  color: var(--thira-text);
+}
+
+@media (width < 860px) {
+  .explode-stage {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Scene 2: one variable, every color ---------- */
+.spectrum-sticky {
+  display: grid;
+  align-items: center;
+  padding-block: 64px;
+  background: radial-gradient(
+    60% 60% at 70% 50%,
+    oklch(from var(--thira-accent) l c h / 0.22),
+    transparent 70%
+  );
+}
+.spectrum-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 48px;
+}
+.spectrum-copy {
+  display: grid;
+  gap: 24px;
+}
+.spectrum .lede {
+  max-width: 30ch;
+}
+.hue-readout {
+  --hue-int: calc(mod(var(--thira-hue), 360));
+  counter-reset: hue var(--hue-int);
+  justify-self: start;
+  padding: 10px 16px;
+  border: 1px solid var(--thira-border-strong);
+  border-radius: 999px;
+  font:
+    500 1rem/1 ui-monospace,
+    "Cascadia Code",
+    Consolas,
+    monospace;
+  color: var(--thira-accent);
+}
+.hue-readout::after {
+  content: ": " counter(hue);
+}
+@media (width < 860px) {
+  .spectrum-inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Code panel (thira-ui tile) ---------- */
+.code-panel {
+  margin: 0;
+  justify-self: center;
+  width: min(100%, 460px);
+  padding: 24px 28px;
+  border: 1px solid var(--thira-border);
+  border-radius: 20px;
+  background: oklch(from var(--thira-bg) calc(l - 0.02) c h);
+  font:
+    14px/1.7 ui-monospace,
+    "Cascadia Code",
+    Consolas,
+    monospace;
+  color: var(--thira-text-muted);
+  overflow-x: auto;
+  box-shadow: 0 30px 60px oklch(0% 0 0 / 0.3);
+}
+.code-panel .k {
+  color: oklch(72% 0.15 320);
+}
+.code-panel .s {
+  color: oklch(76% 0.13 150);
+}
+.code-panel .t {
+  color: oklch(from var(--thira-accent) calc(l + 0.15) c h);
+}
+
+/* ---------- Scroll-pinned motion ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .explode {
+      height: 320vh;
+      view-timeline: --explode block;
+    }
+    .spectrum {
+      height: 300vh;
+      view-timeline: --spectrum block;
+    }
+    .explode-sticky,
+    .spectrum-sticky {
+      position: sticky;
+      top: 52px;
+      height: calc(100svh - 52px);
+      overflow: clip;
+    }
+
+    /* Flat card → tilt into isometric view */
+    .stack {
+      animation: stack-tilt linear both;
+      animation-timeline: --explode;
+      animation-range: contain 0% contain 35%;
+    }
+    @keyframes stack-tilt {
+      from {
+        transform: rotateX(0deg) rotateZ(0deg) scale(0.9);
+      }
+    }
+    /* Layers start stacked, then pull apart */
+    .layer-components,
+    .layer-primitives {
+      animation: layer-split linear both;
+      animation-timeline: --explode;
+      animation-range: contain 25% contain 70%;
+    }
+    @keyframes layer-split {
+      from {
+        translate: 0 0 0;
+      }
+    }
+    .lbl {
+      animation: lbl-in linear both;
+      animation-timeline: --explode;
+    }
+    .lbl-components {
+      animation-range: contain 40% contain 55%;
+    }
+    .lbl-primitives {
+      animation-range: contain 52% contain 67%;
+    }
+    .lbl-tokens {
+      animation-range: contain 64% contain 79%;
+    }
+    @keyframes lbl-in {
+      from {
+        opacity: 0;
+        translate: 24px 0;
+      }
+    }
+
+    /* The whole subtree's hue goes once around the wheel */
+    .spectrum-sticky {
+      animation: hue-spin linear both;
+      animation-timeline: --spectrum;
+      animation-range: contain 0% contain 100%;
+    }
+    @keyframes hue-spin {
+      from {
+        --thira-hue: 250;
+      }
+      to {
+        --thira-hue: 610;
+      }
+    }
+  }
+}
+
+.section-title.small {
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
 }

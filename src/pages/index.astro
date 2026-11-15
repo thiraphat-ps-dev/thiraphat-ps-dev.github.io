@@ -2,6 +2,8 @@
 import '@fontsource-variable/inter';
 import 'thira-ui/styles.css';
 import { HeroCta } from '../components/HeroCta';
+import { ThiraUiDemo } from '../components/ThiraUiDemo';
+import { ExplodedStack } from '../components/ExplodedStack';
 import '../styles/global.css';
 
 const statement =
@@ -47,41 +49,114 @@ const statement =
         <span class="scroll-hint" aria-hidden="true">Scroll ↓</span>
       </section>
 
+      <section class="explode" aria-labelledby="explode-title">
+        <div class="explode-sticky">
+          <div class="container explode-copy">
+            <p class="eyebrow">How I build interfaces</p>
+            <h2 id="explode-title" class="section-title small">Three layers.<br />One system.</h2>
+          </div>
+          <div class="explode-stage">
+            <ExplodedStack />
+            <ol class="explode-labels">
+              <li class="lbl lbl-components"><b>Components</b> Accessible, composable, ready to ship.</li>
+              <li class="lbl lbl-primitives"><b>Primitives</b> Behavior and ARIA from headless foundations.</li>
+              <li class="lbl lbl-tokens"><b>Tokens</b> Color, space and type as CSS variables.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
       <section class="statement" aria-label="Philosophy">
         <p class="container">
           {statement.split(' ').map((word) => <span class="w">{word} </span>)}
         </p>
       </section>
 
+      <section class="spectrum" aria-labelledby="spectrum-title">
+        <div class="spectrum-sticky" data-thira-theme>
+          <div class="container spectrum-inner">
+            <div class="spectrum-copy">
+              <h2 id="spectrum-title" class="section-title">
+                One variable.<br /><span class="grad">Every color.</span>
+              </h2>
+              <p class="lede">
+                Scroll, and a single CSS variable re-themes every accent, hover and focus ring in
+                thira-ui. No JavaScript involved.
+              </p>
+              <code class="hue-readout">--thira-hue</code>
+            </div>
+            <ThiraUiDemo />
+          </div>
+        </div>
+      </section>
+
       <section id="work" class="work" aria-labelledby="work-title">
         <div class="container">
           <h2 id="work-title" class="section-label">Selected work</h2>
+          <article id="thira-ui" class="tile tile-feature">
+            <div>
+              <p class="kicker">Open source · React UI library</p>
+              <h2>thira-ui</h2>
+              <p class="desc">
+                An accessible component library built on Base UI primitives and modern CSS:
+                <code>oklch()</code> tokens, <code>@layer</code> and zero CSS-in-JS. Every component
+                is checked with axe in light and dark mode.
+              </p>
+              <label class="hue">
+                <span>Try the theme. Drag to change <code>--thira-hue</code></span>
+                <input type="range" min="0" max="360" value="250" data-hue-slider />
+              </label>
+              <div class="links">
+                <a href="https://thiraphat-ps-dev.github.io/thira-ui/">Live Storybook ↗</a>
+                <a href="https://github.com/thiraphat-ps-dev/thira-ui">Source on GitHub ↗</a>
+              </div>
+            </div>
+            <pre class="code-panel" aria-label="Usage example"><code><span class="k">import</span> {'{'} Button, Dialog {'}'} <span class="k">from</span> <span class="s">'thira-ui'</span>;
+
+&lt;<span class="t">Dialog</span>&gt;
+  &lt;<span class="t">Dialog.Trigger</span> render={'{'}&lt;<span class="t">Button</span> /&gt;{'}'}&gt;
+    Open
+  &lt;/<span class="t">Dialog.Trigger</span>&gt;
+  &lt;<span class="t">Dialog.Content</span> title=<span class="s">"Hello"</span>&gt;
+    Focus is trapped. Esc closes.
+  &lt;/<span class="t">Dialog.Content</span>&gt;
+&lt;/<span class="t">Dialog</span>&gt;</code></pre>
+          </article>
+
           <article class="tile">
             <div>
-              <p class="kicker">Membership platform · King Power</p>
-              <h2>PowerPass</h2>
+              <p class="kicker">King Power · 2023 – Present</p>
+              <h2>Membership &amp; commerce platforms</h2>
               <p class="desc">
-                A membership and privilege platform built from the ground up, giving customers one
-                place for their exclusive benefits. Built on a shared design system with React
-                Query and React Hook Form.
+                I lead frontend development on King Power's membership platform and e-commerce
+                experiences. That covers the component architecture on a shared design system, form
+                and data patterns with React Hook Form and React Query, plus code reviews and
+                mentoring for the team.
               </p>
               <ul class="tags" aria-label="Tech stack">
                 <li>Next.js</li>
                 <li>TypeScript</li>
                 <li>React Query</li>
-                <li>Design System</li>
+                <li>Design Tokens</li>
+                <li>Storybook</li>
               </ul>
             </div>
-            <div class="visual" aria-hidden="true">
-              <div class="chip"></div>
-              <div>
-                <div class="tier">Member</div>
-                <div class="name">PowerPass</div>
-              </div>
+            <div class="planes" aria-hidden="true">
+              <div class="plane p1"></div>
+              <div class="plane p2"></div>
+              <div class="plane p3"></div>
             </div>
           </article>
         </div>
       </section>
     </main>
+
+    <script>
+      // The only JS on the page: a hue slider that re-themes everything live.
+      const slider = document.querySelector<HTMLInputElement>('[data-hue-slider]');
+      slider?.addEventListener('input', () => {
+        document.documentElement.style.setProperty('--thira-hue', slider.value);
+      });
+    </script>
   </body>
 </html>
