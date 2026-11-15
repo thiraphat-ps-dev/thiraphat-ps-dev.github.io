@@ -1137,13 +1137,11 @@ a {
 }
 
 /* ---------- Performance: keep scroll-linked motion on the compositor ---------- */
-.stack,
-.layer,
+/* Not on .stack/.layer: will-change: opacity would flatten their preserve-3d. */
 .tile,
 .cell,
 .post,
-.hero-inner,
-.o-zoom {
+.hero-inner {
   will-change: transform, opacity;
 }
 /* Keep the hue animation's style recalcs to the card + copy, not a full-screen paint */
@@ -1152,5 +1150,9 @@ a {
 }
 .spectrum-sticky {
   /* Static colors, so this layer isn't repainted while the hue animates */
-  background: radial-gradient(50% 55% at 72% 50%, oklch(55% 0.12 250 / 0.16), transparent 70%);
+  background: radial-gradient(
+    50% 55% at 72% 50%,
+    oklch(55% 0.12 250 / 0.16),
+    transparent 70%
+  );
 }
