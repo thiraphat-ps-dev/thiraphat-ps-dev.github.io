@@ -1,0 +1,87 @@
+---
+import '@fontsource-variable/inter';
+import 'thira-ui/styles.css';
+import { HeroCta } from '../components/HeroCta';
+import '../styles/global.css';
+
+const statement =
+  'Great code isn’t just fast. It’s clear, reusable, and helps the entire team grow.';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Thiraphat Phutson — Senior Frontend Engineer</title>
+    <meta
+      name="description"
+      content="Senior frontend engineer in Bangkok building scalable, accessible web platforms with React, Next.js and TypeScript."
+    />
+  </head>
+  <body>
+    <header class="nav">
+      <nav class="container nav-inner" aria-label="Main">
+        <a class="nav-brand" href="/">Thiraphat</a>
+        <ul class="nav-links">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#thira-ui">thira-ui</a></li>
+          <li><a href="#writing">Writing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero-inner">
+          <p class="eyebrow">Senior Frontend Engineer · Bangkok</p>
+          <h1 id="hero-title" class="headline">
+            Code that <span class="grad">lasts.</span>
+          </h1>
+          <p class="lede">
+            I build scalable, accessible interfaces, and the design systems and teams behind them.
+          </p>
+          <HeroCta />
+        </div>
+        <span class="scroll-hint" aria-hidden="true">Scroll ↓</span>
+      </section>
+
+      <section class="statement" aria-label="Philosophy">
+        <p class="container">
+          {statement.split(' ').map((word) => <span class="w">{word} </span>)}
+        </p>
+      </section>
+
+      <section id="work" class="work" aria-labelledby="work-title">
+        <div class="container">
+          <h2 id="work-title" class="section-label">Selected work</h2>
+          <article class="tile">
+            <div>
+              <p class="kicker">Membership platform · King Power</p>
+              <h2>PowerPass</h2>
+              <p class="desc">
+                A membership and privilege platform built from the ground up, giving customers one
+                place for their exclusive benefits. Built on a shared design system with React
+                Query and React Hook Form.
+              </p>
+              <ul class="tags" aria-label="Tech stack">
+                <li>Next.js</li>
+                <li>TypeScript</li>
+                <li>React Query</li>
+                <li>Design System</li>
+              </ul>
+            </div>
+            <div class="visual" aria-hidden="true">
+              <div class="chip"></div>
+              <div>
+                <div class="tier">Member</div>
+                <div class="name">PowerPass</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
