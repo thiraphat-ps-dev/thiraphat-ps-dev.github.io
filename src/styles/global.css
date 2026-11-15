@@ -770,3 +770,343 @@ a {
 .section-title.small {
   font-size: clamp(2.2rem, 5vw, 4.2rem);
 }
+
+/* =========================================================
+   Bento (light interlude, Apple-style rhythm)
+   ========================================================= */
+.bento-wrap {
+  --ink: oklch(22% 0.01 260);
+  --ink-muted: oklch(45% 0.015 260);
+  padding-block: clamp(96px, 14vh, 160px);
+  background: oklch(97% 0.004 260);
+  color: var(--ink);
+}
+.bento-wrap .eyebrow {
+  color: oklch(from var(--thira-accent) calc(l - 0.05) c h);
+}
+.bento-wrap .section-title {
+  margin: 12px 0 48px;
+  max-width: 14ch;
+}
+.bento {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  gap: 16px;
+}
+.cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 28px;
+  border-radius: 28px;
+  background: oklch(100% 0 0);
+  box-shadow:
+    0 1px 2px oklch(0% 0 0 / 0.04),
+    0 12px 40px oklch(0% 0 0 / 0.05);
+  overflow: hidden;
+}
+.cell h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
+}
+.cell p,
+.cell .cap {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: var(--ink-muted);
+}
+.cell .big {
+  font-size: clamp(5rem, 11vw, 9rem);
+  font-weight: 750;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  color: oklch(from var(--thira-accent) calc(l - 0.04) c h);
+}
+.cell .ico {
+  font-size: 2rem;
+  color: oklch(from var(--thira-accent) calc(l - 0.05) c h);
+  margin-bottom: auto;
+}
+.cell-years {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+.cell-stack {
+  grid-column: span 3;
+  justify-content: space-between;
+}
+.cell-a11y {
+  grid-column: span 3;
+  background: oklch(20% 0.02 260);
+  color: oklch(97% 0 0);
+}
+.cell-a11y .cap {
+  color: oklch(80% 0.01 260);
+}
+.cell-a11y .big {
+  color: oklch(82% 0.15 165);
+}
+.cell-mentor,
+.cell-ds,
+.cell-ai {
+  grid-column: span 2;
+}
+.stack-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.stack-list li {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: oklch(95% 0.005 260);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+@media (width < 860px) {
+  .bento {
+    grid-template-columns: 1fr;
+  }
+  .bento > .cell {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+/* =========================================================
+   Writing rail (horizontal scroll-snap)
+   ========================================================= */
+.writing {
+  padding-block: clamp(96px, 14vh, 160px);
+}
+.writing-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.more {
+  font-weight: 600;
+  color: var(--thira-accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.rail {
+  --inset: max(var(--gutter), (100% - var(--page-max)) / 2);
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(78vw, 340px);
+  gap: 20px;
+  margin: 0;
+  padding: 0 var(--inset) 24px;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--inset);
+  scrollbar-width: none;
+}
+.post {
+  scroll-snap-align: start;
+}
+.post a {
+  display: grid;
+  gap: 12px;
+  height: 100%;
+  padding: 14px 14px 22px;
+  border: 1px solid var(--thira-border);
+  border-radius: 24px;
+  background: var(--thira-surface);
+  text-decoration: none;
+  transition:
+    translate var(--thira-duration) var(--thira-ease),
+    border-color var(--thira-duration) var(--thira-ease);
+}
+.post a:hover {
+  translate: 0 -4px;
+  border-color: var(--thira-border-strong);
+}
+.post a:focus-visible {
+  outline: none;
+  box-shadow: var(--thira-focus-ring);
+}
+.thumb {
+  aspect-ratio: 16 / 10;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    oklch(from var(--thira-accent) l c h / 0.35),
+    oklch(from var(--thira-accent) l c calc(h + 80) / 0.25)
+  );
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.post time {
+  padding-inline: 6px;
+  font-size: 0.8rem;
+  color: var(--thira-text-muted);
+}
+.post h3 {
+  margin: 0;
+  padding-inline: 6px;
+  font-size: 1.1rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+/* =========================================================
+   Outro zoom-through → contact
+   ========================================================= */
+.outro-sticky {
+  display: grid;
+  place-items: center;
+  min-height: 70svh;
+  overflow: clip;
+}
+.outro-text {
+  margin: 0;
+  max-width: 14ch;
+  font-size: clamp(2.6rem, 8vw, 7rem);
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  text-align: center;
+}
+.o-zoom {
+  display: inline-block;
+  color: var(--thira-accent);
+}
+
+.contact {
+  background: var(--thira-accent);
+  color: var(--thira-on-accent);
+}
+.contact-inner {
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+  padding-block: clamp(120px, 20vh, 200px) 80px;
+  text-align: center;
+}
+.contact .lede {
+  color: oklch(from var(--thira-on-accent) l c h / 0.85);
+}
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.contact-links a {
+  display: inline-block;
+  padding: 14px 26px;
+  border-radius: 999px;
+  border: 1.5px solid oklch(from var(--thira-on-accent) l c h / 0.5);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background var(--thira-duration) var(--thira-ease);
+}
+.contact-links a:hover {
+  background: oklch(from var(--thira-on-accent) l c h / 0.12);
+}
+.contact-links a:focus-visible {
+  outline: 2px solid var(--thira-on-accent);
+  outline-offset: 3px;
+}
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 28px;
+  border-top: 1px solid oklch(from var(--thira-on-accent) l c h / 0.25);
+  font-size: 0.85rem;
+  color: oklch(from var(--thira-on-accent) l c h / 0.85);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    /* Bento cells rise in, staggered by position */
+    .cell {
+      animation: cell-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+    @keyframes cell-in {
+      from {
+        opacity: 0;
+        translate: 0 60px;
+        scale: 0.96;
+      }
+    }
+
+    /* Cards scale up as they enter the rail viewport (horizontal timeline) */
+    .post {
+      animation: post-in linear both;
+      animation-timeline: view(inline);
+      animation-range: entry 0% entry 60%;
+    }
+    @keyframes post-in {
+      from {
+        opacity: 0.3;
+        scale: 0.9;
+      }
+    }
+
+    /* Pinned outro: "lasts" grows until its first stroke fills the screen */
+    .outro {
+      height: 260vh;
+      view-timeline: --outro block;
+    }
+    .outro-sticky {
+      position: sticky;
+      top: 0;
+      height: 100svh;
+    }
+    .o-zoom {
+      transform-origin: 0.13em 60%;
+      animation: zoom-through cubic-bezier(0.7, 0, 0.84, 0) both;
+      animation-timeline: --outro;
+      animation-range: contain 10% contain 100%;
+    }
+    @keyframes zoom-through {
+      to {
+        scale: 90;
+      }
+    }
+    .outro-text {
+      animation: outro-fade linear both;
+      animation-timeline: --outro;
+      animation-range: contain 10% contain 45%;
+    }
+    .outro-sticky {
+      animation: outro-fill linear both;
+      animation-timeline: --outro;
+      animation-range: contain 80% contain 100%;
+    }
+    @keyframes outro-fill {
+      to {
+        background: var(--thira-accent);
+      }
+    }
+    @keyframes outro-fade {
+      to {
+        color: transparent;
+      }
+    }
+  }
+}

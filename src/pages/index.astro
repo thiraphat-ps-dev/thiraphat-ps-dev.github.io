@@ -5,6 +5,10 @@ import { HeroCta } from '../components/HeroCta';
 import { ThiraUiDemo } from '../components/ThiraUiDemo';
 import { ExplodedStack } from '../components/ExplodedStack';
 import '../styles/global.css';
+import { getArticles } from '../lib/medium';
+
+const articles = await getArticles(8);
+const fmt = new Intl.DateTimeFormat('en', { month: 'short', year: 'numeric' });
 
 const statement =
   'Great code isn’t just fast. It’s clear, reusable, and helps the entire team grow.';
@@ -148,6 +152,95 @@ const statement =
             </div>
           </article>
         </div>
+      </section>
+
+      <section class="bento-wrap" aria-labelledby="bento-title">
+        <div class="container">
+          <p class="eyebrow">What I bring</p>
+          <h2 id="bento-title" class="section-title small">More than shipping screens.</h2>
+          <div class="bento">
+            <div class="cell cell-years">
+              <span class="big">6+</span>
+              <span class="cap">years building production web apps</span>
+            </div>
+            <div class="cell cell-stack">
+              <span class="cap">Daily stack</span>
+              <ul class="stack-list">
+                <li>React</li><li>Next.js</li><li>TypeScript</li><li>React Query</li><li>Storybook</li><li>Vitest</li>
+              </ul>
+            </div>
+            <div class="cell cell-a11y">
+              <span class="big">AA</span>
+              <span class="cap">Accessibility is a default, checked with axe, not an afterthought</span>
+            </div>
+            <div class="cell cell-mentor">
+              <span class="ico" aria-hidden="true">◎</span>
+              <h3>Mentoring &amp; reviews</h3>
+              <p>Growing junior and mid-level developers through code review and pairing.</p>
+            </div>
+            <div class="cell cell-ds">
+              <span class="ico" aria-hidden="true">◇</span>
+              <h3>Design systems</h3>
+              <p>Tokens, theming and Storybook that keep large teams consistent.</p>
+            </div>
+            <div class="cell cell-ai">
+              <span class="ico" aria-hidden="true">✦</span>
+              <h3>AI-native workflow</h3>
+              <p>Agentic pipelines that scaffold, test and self-check code against quality gates.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {
+        articles.length > 0 && (
+          <section id="writing" class="writing" aria-labelledby="writing-title">
+            <div class="container writing-head">
+              <h2 id="writing-title" class="section-title small">Writing</h2>
+              <a class="more" href="https://medium.com/@thiraphat-ps-dev">
+                All articles on Medium ↗
+              </a>
+            </div>
+            <ul class="rail">
+              {articles.map((a) => (
+                <li class="post">
+                  <a href={a.url} lang={a.lang}>
+                    <div class="thumb">
+                      {a.image && <img src={a.image} alt="" loading="lazy" decoding="async" />}
+                    </div>
+                    <time datetime={a.date.toISOString()}>{fmt.format(a.date)}</time>
+                    <h3>{a.title}</h3>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      <section class="outro" aria-labelledby="outro-title">
+        <div class="outro-sticky">
+          <h2 id="outro-title" class="outro-text">
+            Let’s build something that <span class="o-zoom">lasts</span>.
+          </h2>
+        </div>
+      </section>
+
+      <section id="contact" class="contact" aria-labelledby="contact-title">
+        <div class="container contact-inner">
+          <h2 id="contact-title" class="section-title">Say hello.</h2>
+          <p class="lede">Open to conversations about frontend, design systems and teams.</p>
+          <ul class="contact-links">
+            <li><a href="mailto:thiraphat.ps.dev@gmail.com">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/thiraphat-phutson/">LinkedIn</a></li>
+            <li><a href="https://github.com/thiraphat-ps-dev">GitHub</a></li>
+            <li><a href="https://medium.com/@thiraphat-ps-dev">Medium</a></li>
+          </ul>
+        </div>
+        <footer class="container foot">
+          <span>© {new Date().getFullYear()} Thiraphat Phutson</span>
+          <span>Built with Astro and <a href="https://github.com/thiraphat-ps-dev/thira-ui">thira-ui</a>. Zero CSS-in-JS.</span>
+        </footer>
       </section>
     </main>
 
