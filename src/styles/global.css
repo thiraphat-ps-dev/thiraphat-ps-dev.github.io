@@ -3,7 +3,8 @@
 :root {
   --thira-hue: 250;
   --thira-font: "Thira Sans", system-ui, sans-serif;
-  font-feature-settings: "cv11", "ss01";
+  /* Thira Sans ss03: single-storey a and g. */
+  font-feature-settings: "ss03";
   --page-max: 1200px;
   --gutter: clamp(16px, 4vw, 48px);
   color-scheme: light dark;
