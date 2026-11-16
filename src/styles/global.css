@@ -388,6 +388,9 @@ a {
   height: auto;
   image-rendering: pixelated;
 }
+.shot-ui img {
+  image-rendering: auto;
+}
 
 @media (width < 860px) {
   .tile {
