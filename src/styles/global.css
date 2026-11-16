@@ -367,6 +367,28 @@ a {
   font-weight: 700;
 }
 
+/* Lofi Room: a still of the pixel scene, kept crisp when scaled */
+.tile .tags + .links {
+  margin-top: 28px;
+}
+.shot {
+  display: block;
+  border-radius: 20px;
+  overflow: clip;
+  border: 1px solid var(--thira-border);
+  box-shadow: 0 24px 60px -24px oklch(0% 0 0 / 0.5);
+  transition: transform 0.3s ease;
+}
+.shot:hover {
+  transform: translateY(-4px);
+}
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+
 @media (width < 860px) {
   .tile {
     grid-template-columns: 1fr;
