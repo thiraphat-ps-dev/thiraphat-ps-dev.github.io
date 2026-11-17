@@ -2,7 +2,7 @@
 
 :root {
   --thira-hue: 250;
-  --thira-font: "Thira Sans", system-ui, sans-serif;
+  --thira-font: "Thira Sans", "Thira Sans Fallback", system-ui, sans-serif;
   /* Thira Sans ss03: single-storey a and g. */
   font-feature-settings: "ss03";
   --page-max: 1200px;
