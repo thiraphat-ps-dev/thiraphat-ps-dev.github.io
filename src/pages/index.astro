@@ -4,6 +4,7 @@ import 'thira-ui/styles.css';
 import { HeroCta } from '../components/HeroCta';
 import { ThiraUiDemo } from '../components/ThiraUiDemo';
 import { ExplodedStack } from '../components/ExplodedStack';
+import { IconGrid } from '../components/IconGrid';
 import '../styles/global.css';
 import { getArticles } from '../lib/medium';
 
@@ -212,19 +213,38 @@ const statement =
             </div>
           </article>
 
+          <article id="thira-icons" class="tile">
+            <div>
+              <p class="kicker">Open source · Icon set</p>
+              <h2>thira-icons</h2>
+              <p class="desc">
+                439 icons I drew from scratch on a 24px grid, including a Thai set: tuk-tuk, wai,
+                temple, sticky rice and more. Every icon ships as SVG, a sprite, an icon font and a
+                tree-shakable React component. thira-ui uses them for its own icons.
+              </p>
+              <div class="links">
+                <a href="https://thiraphat-ps-dev.github.io/thira-icons/">Browse the icons ↗</a>
+                <a href="https://github.com/thiraphat-ps-dev/thira-icons">Source on GitHub ↗</a>
+              </div>
+            </div>
+            <IconGrid />
+          </article>
+
           <article id="lofi-room" class="tile">
             <div>
               <p class="kicker">Side project · Web app</p>
               <h2>Lofi Room</h2>
               <p class="desc">
-                Full-screen pixel-art scenes to listen to lofi in. Five animated scenes are drawn in
-                code on a canvas, with no image files. It plays YouTube stations, generates rain
-                sounds with Web Audio, and has a focus timer. No build step.
+                Full-screen pixel-art scenes to listen to lofi in. Seven scenes are drawn in code on a
+                canvas, with no image files, lit by a dithered light map. Something small happens every
+                minute or so, and you can pet the cats. 56 YouTube stations, rain from Web Audio, a
+                focus timer, Thai and English, and it installs as an app. No build step.
               </p>
               <ul class="tags" aria-label="Tech stack">
                 <li>Canvas 2D</li>
                 <li>YouTube IFrame API</li>
                 <li>Web Audio</li>
+                <li>PWA</li>
                 <li>Vanilla JS</li>
               </ul>
               <div class="links">

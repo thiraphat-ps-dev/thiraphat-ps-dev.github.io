@@ -367,6 +367,29 @@ a {
   font-weight: 700;
 }
 
+/* thira-icons: a sample of the set, the Thai icons picked out in the accent */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+  justify-self: center;
+  width: min(100%, 440px);
+}
+.icon-grid .icon-cell {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border: 1px solid var(--thira-border);
+  border-radius: 16px;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--thira-text-muted);
+}
+.icon-grid .thai {
+  color: var(--thira-accent);
+  border-color: oklch(from var(--thira-accent) l c h / 0.45);
+  background: oklch(from var(--thira-accent) l c h / 0.08);
+}
+
 /* Lofi Room: a still of the pixel scene, kept crisp when scaled */
 .tile .tags + .links {
   margin-top: 28px;
